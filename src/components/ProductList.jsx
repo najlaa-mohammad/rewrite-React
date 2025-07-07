@@ -1,19 +1,20 @@
-import "./Products.css"
+import "./ProductList.css";
 import Product from "./Product";
+import { Toaster } from "react-hot-toast";
 
 const productList = [
   {
     id: 1,
-    image: "../assets/images/product_01.jpg",
+    image: "/images/product_01.jpg",
     title: "Classic Denim Jacket",
     price: 49.99,
     description: "A stylish denim jacket for all seasons.",
     reviews: 21,
-    rating: 4,
+    rating: 3,
   },
   {
     id: 2,
-    image: "../assets/images/product_02.jpg",
+    image: "/images/product_02.jpg",
     title: "Casual Sneakers",
     price: 64.5,
     description: "Comfortable sneakers perfect for daily wear.",
@@ -22,7 +23,7 @@ const productList = [
   },
   {
     id: 3,
-    image: "../assets/images/product_03.jpg",
+    image: "/images/product_03.jpg",
     title: "Leather Handbag",
     price: 120.0,
     description: "Elegant leather handbag for every occasion.",
@@ -31,25 +32,25 @@ const productList = [
   },
   {
     id: 4,
-    image: "../assets/images/product_04.jpg",
+    image: "/images/product_04.jpg",
     title: "Winter Scarf",
     price: 25.75,
     description: "Keep warm with this soft winter scarf.",
     reviews: 14,
-    rating: 4,
+    rating: 2,
   },
   {
     id: 5,
-    image: "../assets/images/product_05.jpg",
+    image: "/images/product_05.jpg",
     title: "Sunglasses",
     price: 34.2,
-    description: "Trendy UV-protection sunglasses.",
+    description: "Trendy UV-protection sunglasses watch.",
     reviews: 66,
-    rating: 5,
+    rating: 1,
   },
   {
     id: 6,
-    image: "../assets/images/product_06.jpg",
+    image: "/images/product_06.jpg",
     title: "Fitness Watch",
     price: 89.99,
     description: "Track your health with this smart watch.",
@@ -58,16 +59,18 @@ const productList = [
   },
 ];
 
-const Products = () => {
+const ProductList = () => {
   return (
-    <ul className="item-list">
+    <div className="product-list-grid">
       {productList.map((product) => (
         <Product key={product.id} product={product} />
       ))}
-    </ul>
+    </div>
   );
 };
 
 
 
-export default Products;
+
+export default ProductList;
+

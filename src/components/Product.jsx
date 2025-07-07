@@ -1,43 +1,37 @@
-import React from "react";
+import { useContext } from "react";
+import { CartContext } from "./CartContext";
+import { toast } from "react-hot-toast";
 
 const Product = ({ product }) => {
-  
-  return (
-    <li className="product-item">
-      <a href="#">
-        <img
-          src={product.image}
-          width="100px"
-          height="100px"
-          // alt={product.title}
-        />
-      </a>
-      <div className="title-price">
-        <h4>
-          <a href="#">{product.title}</a>
-        </h4>
-        <h6>${product.price}</h6>
-      </div>
-      <div className="down-content">
-        <p>{product.description}</p>
-        <div className="rating-container">
-          <ul className="stars">
-            {[...Array(5)].map((_, i) => (
-              <li key={i}>
-                <i
-                  className={`fa ${
-                    i < product.rating ? "fa-star" : "fa-star-o"
-                  }`}
-                  style={{ color: "#ffd700" }}
-                ></i>
-              </li>
-            ))}
-          </ul>
-          <span style={{ color: "red" }}>Reviews ({product.reviews})</span>
-        </div>
+  const { title, image, price, description, rating, reviews, id } = product;
+  const { cartItems, setCartItems } = useContext(CartContext);
 
-      </div>
-    </li>
+  const handleAdd = () => {
+    const exists = cartItems.find((item) => item.id === id);
+
+    if (!exists) {
+      setCartItems([...cartItems, product]);
+      toast.success("✅ Product added to cart!");
+    } else {
+      toast("⚠️ Product already in cart!");
+    }
+  };
+
+  return (
+    <div
+      className="product-card"
+      style={{ border: "1px solid #ccc", padding: 10 }}
+    >
+      <img src={image} alt={title} width="100" height="100" />
+      <h4>{title}</h4>
+      <p>{description}</p>
+      <p>💵 ${price}</p>
+      <p>
+        ⭐ {rating} ({reviews} reviews)
+      </p>
+      <button onClick={handleAdd}>🛒 Add to Cart</button>
+    </div>
   );
 };
+
 export default Product;
