@@ -30,7 +30,15 @@ const CartItems = () => {
                   borderBottom: "1px solid #eee",
                 }}
               >
-                <div>
+                <div
+                  style={{ display: "flex", alignItems: "center", gap: "10px" }}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    width="50"
+                    height="50"
+                  />
                   <strong>{item.title}</strong> – ${item.price}
                 </div>
                 <button onClick={() => handleRemove(item.id)}>❌ Remove</button>
@@ -38,7 +46,6 @@ const CartItems = () => {
             ))}
           </ul>
 
-          {/* ✅ حساب الإجمالي */}
           <h3>
             Total: $
             {cartItems

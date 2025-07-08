@@ -11,7 +11,7 @@ const Product = ({ product }) => {
 
     if (!exists) {
       setCartItems([...cartItems, product]);
-      toast.success("✅ Product added to cart!");
+      toast.success(" Product added to cart!");
     } else {
       toast("⚠️ Product already in cart!");
     }
