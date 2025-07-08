@@ -22,13 +22,13 @@ const Product = ({ product }) => {
       className="product-card"
       style={{ border: "1px solid #ccc", padding: 10 }}
     >
-      <img src={image} alt={title} width="100" height="100" />
+      <img src={image} alt={title} width="200" height="100" />
       <h4>{title}</h4>
       <p>{description}</p>
       <p>💵 ${price}</p>
-      <p>
-        ⭐ {rating} ({reviews} reviews)
-      </p>
+      <p>{"⭐".repeat(rating)}</p>
+
+      <p>({reviews} reviews)</p>
       <button onClick={handleAdd}>🛒 Add to Cart</button>
     </div>
   );

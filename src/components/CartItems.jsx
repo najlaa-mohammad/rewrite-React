@@ -10,6 +10,7 @@ const CartItems = () => {
     toast.success("🗑️ Product removed from cart!");
   };
 
+  
   return (
     <div style={{ padding: 20, borderTop: "1px solid #ccc" }}>
       <h2>🛒 Your Cart ({cartItems.length})</h2>
@@ -36,8 +37,8 @@ const CartItems = () => {
                   <img
                     src={item.image}
                     alt={item.title}
-                    width="50"
-                    height="50"
+                    width="200"
+                    height="100"
                   />
                   <strong>{item.title}</strong> – ${item.price}
                 </div>
